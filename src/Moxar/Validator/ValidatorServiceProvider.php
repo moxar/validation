@@ -17,9 +17,8 @@ class ValidatorServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
-	public function register()
-	{
-		//
+	public function register() {
+            return [];
 	}
 
 	/**
@@ -27,12 +26,11 @@ class ValidatorServiceProvider extends ServiceProvider {
 	 *
 	 * @return array
 	 */
-	public function provides()
-	{
-		return array();
+	public function provides() {
 	}
 	
-	public function boot() {
+	public function boot() {    
+            $this->package('moxar/validator');
             $this->extendRatio();
             $this->replaceRatio();
 	}

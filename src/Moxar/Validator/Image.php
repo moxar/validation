@@ -2,6 +2,10 @@
 
 class Image {
     
+    /*
+     * Adds rule ratio for validation
+     * params are: width, height (in px)
+     */
     public function ratio($field, $value, $parameters) {
         $img = getimagesize($value);
         
