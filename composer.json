@@ -1,0 +1,25 @@
+{
+    "name": "moxar/validator",
+    "type": "library",
+    "description": "Extended Validator: images and translations for Laravel 4.",
+    "keywords": ["validator", "image", "laravel", "translation"],
+    "homepage": "https://github.com/moxar/validator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexandre Thomas",
+            "email": "alexandre.thomas@outlook.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Moxar\\Lazy": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
