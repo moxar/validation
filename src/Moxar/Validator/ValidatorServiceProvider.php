@@ -30,22 +30,77 @@ class ValidatorServiceProvider extends ServiceProvider {
 	}
 	
 	public function boot() {    
-            $this->package('moxar/validator');
-            $this->extendRatio();
-            $this->replaceRatio();
+            $this->ratio();
+            $this->widthMin();
+            $this->widthMax();
+            $this->widthBetween();
+            $this->heightMin();
+            $this->heightMax();
+            $this->heightBetween();
 	}
 	
-	protected function extendRatio() {
+	protected function ratio() {
             $this->app->before(function() {
                 Validator::extend('ratio', 'Moxar\Validator\Image@ratio');
-            });
-	}
-
-	protected function replaceRatio() {
-            $this->app->before(function() {
                 Validator::replacer('ratio', function($message, $attribute, $rule, $parameters) {
                     $message = str_replace(':width', $parameters[0], $message);
                     return str_replace(':height', $parameters[1], $message);
+                });
+            });
+	}
+        
+        protected function widthMin() {
+            $this->app->before(function() {
+                Validator::extend('widthMin', 'Moxar\Validator\Image@widthMin');
+                Validator::replacer('widthMin', function($message, $attribute, $rule, $parameters) {
+                    return $message = str_replace(':min', $parameters[0], $message);
+                });
+            });
+        }
+        
+        protected function widthMax() {
+            $this->app->before(function() {
+                Validator::extend('widthMax', 'Moxar\Validator\Image@widthMax');
+                Validator::replacer('widthMax', function($message, $attribute, $rule, $parameters) {
+                    return $message = str_replace(':max', $parameters[0], $message);
+                });
+            });
+        }
+        
+        protected function widthBetween() {
+            $this->app->before(function() {
+                Validator::extend('widthBetween', 'Moxar\Validator\Image@widthBetween');
+                Validator::replacer('widthBetween', function($message, $attribute, $rule, $parameters) {
+                    $message = str_replace(':min', $parameters[0], $message);
+                    return str_replace(':max', $parameters[1], $message);
+                });
+            });
+        }
+        
+        protected function heightMin() {
+            $this->app->before(function() {
+                Validator::extend('heightMin', 'Moxar\Validator\Image@heightMin');
+                Validator::replacer('heightMin', function($message, $attribute, $rule, $parameters) {
+                    return $message = str_replace(':min', $parameters[0], $message);
+                });
+            });
+        }
+        
+        protected function heightMax() {
+            $this->app->before(function() {
+                Validator::extend('heightMax', 'Moxar\Validator\Image@heightMax');
+                Validator::replacer('heightMax', function($message, $attribute, $rule, $parameters) {
+                    return $message = str_replace(':max', $parameters[0], $message);
+                });
+            });
+        }
+        
+        protected function heightBetween() {
+            $this->app->before(function() {
+                Validator::extend('heightBetween', 'Moxar\Validator\Image@heightBetween');
+                Validator::replacer('heightBetween', function($message, $attribute, $rule, $parameters) {
+                    $message = str_replace(':min', $parameters[0], $message);
+                    return str_replace(':max', $parameters[1], $message);
                 });
             });
         }
