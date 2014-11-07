@@ -1,4 +1,4 @@
-<?php namespace Moxar\Validator;
+<?php namespace Moxar\Validator\Rules;
 
 class Image {
     
@@ -16,56 +16,56 @@ class Image {
     }
     
     /*
-     * Adds rule widthMin for validation
+     * Adds rule minWidth for validation
      * param is: width (in px)
      */
-    public function widthMin($field, $value, $parameters) {
+    public function minWidth($field, $value, $parameters) {
         $img = getimagesize($value);
         return $img[0] >= $parameters[0];
     }
     
     /*
-     * Adds rule widthMax for validation
+     * Adds rule maxWidth for validation
      * param is: max (in px)
      */
-    public function widthMax($field, $value, $parameters) {
+    public function maxWidth($field, $value, $parameters) {
         $img = getimagesize($value);
         return $img[0] <= $parameters[0];
     }
     
     /*
-     * Adds rule widthBetween for validation
-     * params are: min, max (in px)
+     * Adds rule width for validation
+     * param is: value (in px)
      */
-    public function widthBetween($field, $value, $parameters) {
+    public function width($field, $parameters) {
         $img = getimagesize($value);
-        return $img[0] >= $parameters[0] && $img[0] <= $parameters[1];
+        return $img[0] == $parameters[0];
     }
     
     /*
-     * Adds rule heightMin for validation
+     * Adds rule minHeight for validation
      * param is: height (in px)
      */
-    public function heightMin($field, $value, $parameters) {
+    public function minHeight($field, $value, $parameters) {
         $img = getimagesize($value);
         return $img[1] >= $parameters[0];
     }
     
     /*
-     * Adds rule heightMax for validation
+     * Adds rule maxHeight for validation
      * param is: max (in px)
      */
-    public function heightMax($field, $value, $parameters) {
+    public function maxHeight($field, $value, $parameters) {
         $img = getimagesize($value);
         return $img[1] <= $parameters[0];
     }
     
     /*
-     * Adds rule heightBetween for validation
-     * params are: min, max (in px)
+     * Adds rule height for validation
+     * param is: value (in px)
      */
-    public function heightBetween($field, $value, $parameters) {
+    public function height($field, $parameters) {
         $img = getimagesize($value);
-        return $img[1] >= $parameters[0] && $img[1] <= $parameters[1];
+        return $img[1] == $parameters[0];
     }
 }
