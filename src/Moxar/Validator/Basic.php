@@ -1,10 +1,10 @@
-<?php namespace Moxar\Validator\Traits;
+<?php namespace Moxar\Validator;
 
-use Illuminate\Support\Facades\Config;
+use Laracasts\Validation\FormValidator;
 
-trait Translatable {
+class Basic extends FormValidator {
 
-    public $rules = [];
+    protected $rules = [];
 
     /*
      * Sets the rules before validating
@@ -28,9 +28,6 @@ trait Translatable {
             return;
         }
     
-        $langs = Config::get('app.locales');
-        $langs = is_array($langs) ? $langs : [];
-    
         foreach($inputs as $key => $value) {
         
             // if the inputs are plain inputs, 
@@ -40,17 +37,6 @@ trait Translatable {
                     continue;
                 }
                 $this->rules[$key] = $this->{$action}[$key];
-            }
-            
-            // if the inputs are localized arrays of inputs.
-            // merge the action rules with the global rules annd prefix them with the lang.
-            elseif(in_array($key, $langs)) {
-                $lang = $key;
-                $items = $value;
-                foreach($items as $key => $value) {
-                    if(!in_array($key, array_keys($this->$action))) continue;
-                    $this->rules[$lang.".".$key] = $this->{$action}[$key];
-                }
             }
         }
     }
