@@ -20,6 +20,11 @@ trait Basic {
      * associated with the translatable input.
      */
     protected function setRules(array $inputs, $action) {
+        
+        // checks if the given action has associated rules
+        if(!isset($this->{$action}) || !is_array($this->{$action}) || empty($this->{$action})) {
+            return;
+        }
     
         foreach($inputs as $key => $value) {
         
