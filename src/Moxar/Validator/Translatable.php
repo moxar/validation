@@ -3,16 +3,17 @@
 use Laracasts\Validation\FormValidator;
 use Illuminate\Support\Facades\Config;
 
-class Translatable extends FormValidator {
+abstract class Translatable extends FormValidator {
 
-    protected $rules;
+    protected $rules = [];
+    public $action = null;
 
     /*
      * Sets the rules before validating
      * This function calls the member setRules method before triggering form validation.
      */
-    public function validate(array $inputs, $action) {
-        $this->setRules($inputs, $action);
+    public function validate($inputs) {
+        $this->setRules($inputs);
         return parent::validate($inputs);
     }
     
@@ -22,10 +23,12 @@ class Translatable extends FormValidator {
      * If the inputs contain translatable attributes, the correct rule is
      * associated with the translatable input.
      */
-    protected function setRules(array $inputs, $action) {
+    protected function setRules($inputs) {
+    
+        $action = $this->action;
         
         // checks if the given action has associated rules
-        if(!isset($this->{$action}) || !is_array($this->{$action}) || empty($this->{$action})) {
+        if(is_null($action) || !isset($this->{$action}) || !is_array($this->{$action}) || empty($this->{$action})) {
             return;
         }
     

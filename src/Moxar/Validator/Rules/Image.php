@@ -37,7 +37,7 @@ class Image {
      * Adds rule width for validation
      * param is: value (in px)
      */
-    public function width($field, $parameters) {
+    public function width($field, $value, $parameters) {
         $img = getimagesize($value);
         return $img[0] == $parameters[0];
     }
@@ -64,7 +64,7 @@ class Image {
      * Adds rule height for validation
      * param is: value (in px)
      */
-    public function height($field, $parameters) {
+    public function height($field, $value, $parameters) {
         $img = getimagesize($value);
         return $img[1] == $parameters[0];
     }
