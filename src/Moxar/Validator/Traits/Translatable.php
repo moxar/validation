@@ -1,21 +1,8 @@
-<?php namespace Moxar\Validator;
+<?php namespace Moxar\Validator\Traits;
 
-use Laracasts\Validation\FormValidator;
 use Illuminate\Support\Facades\Config;
 
-abstract class Translatable extends FormValidator {
-
-    protected $rules = [];
-    public $action = null;
-
-    /*
-     * Sets the rules before validating
-     * This function calls the member setRules method before triggering form validation.
-     */
-    public function validate($inputs) {
-        $this->setRules($inputs);
-        return parent::validate($inputs);
-    }
+trait Translatable {
     
     /*
      * Sets the rule of a validation.

@@ -5,7 +5,16 @@ use Laracasts\Validation\FormValidator;
 abstract class Basic extends FormValidator {
 
     protected $rules = [];
-    public $action = null;
+    protected $action = null;
+    
+    /*
+     * Sets the action to validate
+     * returns the validator instance
+     */
+    public function action($action) {
+        $this->action = $action;
+        return $this;
+    }
 
     /*
      * Sets the rules before validating
