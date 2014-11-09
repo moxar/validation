@@ -87,13 +87,13 @@ Here is your controller class:
 This package provides some additional rules:
 
 ### Images
-* ratio:**width,height** checks the ratio of an image
-* minWidth:**min** checks the minimal width of an image
-* maxWidth:**max** checks the maximal width of an image
-* width:**value** checks the width of an image
-* minHeight:**min** checks the minimal height of an image
-* maxHeight:**max** checks the maximal height of an image
-* height:**value** checks the height of an image
+* ratio:*width,height* checks the ratio of an image
+* minWidth:*min* checks the minimal width of an image
+* maxWidth:*max* checks the maximal width of an image
+* width:*value* checks the width of an image
+* minHeight:*min* checks the minimal height of an image
+* maxHeight:*max* checks the maximal height of an image
+* height:*value* checks the height of an image
 
 ### Translation
 
@@ -104,7 +104,8 @@ Note about `unique`: Assuming you provide an `id` field, the `unique` rule will 
 
 ### Strings
 
-* fullName: checks if the given field is made of strings, spaces or hyphen (regex: `#^([A-Za-z -])*$#`)
+* fullName: checks if the given field is made of strings, spaces or hyphen 
+regex: `#^([A-Za-z -])*$#`
 
 ## Validation messages
 
