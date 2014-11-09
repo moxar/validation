@@ -104,7 +104,8 @@ Note about `unique`: Assuming you provide an `id` field, the `unique` rule will 
 
 ### Strings
 
-* fullName: checks if the given field is made of strings, spaces or hyphen 
+* fullName: checks if the given field is made of strings, spaces or hyphen
+
 regex: `#^([A-Za-z -])*$#`
 
 ## Validation messages
