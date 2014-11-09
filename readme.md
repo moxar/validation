@@ -30,7 +30,7 @@ Install using composer:
 
 Here is your validation class:
 
-```
+```php
 use Moxar\Validation\Validator;
 use Moxar\Validation\Traits\Translatable;
 
