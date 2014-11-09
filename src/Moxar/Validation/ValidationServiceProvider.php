@@ -24,6 +24,7 @@ class ValidationServiceProvider extends ServiceProvider {
             $this->maxHeight();
             $this->height();
             $this->uniqueLang();
+            $this->fullName();
 	}
 	
 	protected function ratio() {
@@ -93,6 +94,12 @@ class ValidationServiceProvider extends ServiceProvider {
         protected function uniqueLang() {
             $this->app->before(function() {
                 Validator::extend('uniqueLang', 'Moxar\Validation\Rules\Translate@uniqueLang');
+            });
+        }
+        
+        protected function fullName() {
+            $this->app->before(function() {
+                Validator::extend('fullName', 'Moxar\Validation\Rules\String@fullName');
             });
         }
 }
