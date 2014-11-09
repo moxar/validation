@@ -24,9 +24,8 @@ trait Basic {
         
         // look for the 'unique' rule and add current input id to the rule.
         foreach($this->rules as &$field) {
-            if(is_string($field)) {
-                $field = explode('|', $field);
-            }
+        
+            // adds id to ignore to rule.
             foreach($field as &$rule) {
                 if(preg_match("#unique:#", $rule)) {
                     $rule .= ",".$inputs['id'];
