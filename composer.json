@@ -1,5 +1,5 @@
 {
-    "name": "moxar/validion",
+    "name": "moxar/validation",
     "type": "library",
     "description": "Extended Validator: images and translations for Laravel 4.",
     "keywords": ["validator", "image", "laravel", "translation"],
