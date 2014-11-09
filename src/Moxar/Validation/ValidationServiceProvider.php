@@ -28,7 +28,7 @@ class ValidationServiceProvider extends ServiceProvider {
 	
 	protected function ratio() {
             $this->app->before(function() {
-                Validator::extend('ratio', 'Moxar\Validator\Rules\Image@ratio');
+                Validator::extend('ratio', 'Moxar\Valiadtion\Rules\Image@ratio');
                 Validator::replacer('ratio', function($message, $attribute, $rule, $parameters) {
                     $message = str_replace(':width', $parameters[0], $message);
                     return str_replace(':height', $parameters[1], $message);
@@ -38,7 +38,7 @@ class ValidationServiceProvider extends ServiceProvider {
         
         protected function minWidth() {
             $this->app->before(function() {
-                Validator::extend('minWidth', 'Moxar\Validator\Rules\Image@minWidth');
+                Validator::extend('minWidth', 'Moxar\Valiadtion\Rules\Image@minWidth');
                 Validator::replacer('minWidth', function($message, $attribute, $rule, $parameters) {
                     return $message = str_replace(':min', $parameters[0], $message);
                 });
@@ -47,7 +47,7 @@ class ValidationServiceProvider extends ServiceProvider {
         
         protected function maxWidth() {
             $this->app->before(function() {
-                Validator::extend('maxWidth', 'Moxar\Validator\Rules\Image@maxWidth');
+                Validator::extend('maxWidth', 'Moxar\Valiadtion\Rules\Image@maxWidth');
                 Validator::replacer('maxWidth', function($message, $attribute, $rule, $parameters) {
                     return $message = str_replace(':max', $parameters[0], $message);
                 });
@@ -56,7 +56,7 @@ class ValidationServiceProvider extends ServiceProvider {
         
         protected function width() {
             $this->app->before(function() {
-                Validator::extend('width', 'Moxar\Validator\Rules\Image@width');
+                Validator::extend('width', 'Moxar\Valiadtion\Rules\Image@width');
                 Validator::replacer('width', function($message, $attribute, $rule, $parameters) {
                     return $message = str_replace(':value', $parameters[0], $message);
                 });
@@ -65,7 +65,7 @@ class ValidationServiceProvider extends ServiceProvider {
         
         protected function minHeight() {
             $this->app->before(function() {
-                Validator::extend('minHeight', 'Moxar\Validator\Rules\Image@minHeight');
+                Validator::extend('minHeight', 'Moxar\Valiadtion\Rules\Image@minHeight');
                 Validator::replacer('minHeight', function($message, $attribute, $rule, $parameters) {
                     return $message = str_replace(':min', $parameters[0], $message);
                 });
@@ -74,7 +74,7 @@ class ValidationServiceProvider extends ServiceProvider {
         
         protected function maxHeight() {
             $this->app->before(function() {
-                Validator::extend('maxHeight', 'Moxar\Validator\Rules\Image@maxHeight');
+                Validator::extend('maxHeight', 'Moxar\Valiadtion\Rules\Image@maxHeight');
                 Validator::replacer('maxHeight', function($message, $attribute, $rule, $parameters) {
                     return $message = str_replace(':max', $parameters[0], $message);
                 });
@@ -83,7 +83,7 @@ class ValidationServiceProvider extends ServiceProvider {
         
         protected function height() {
             $this->app->before(function() {
-                Validator::extend('height', 'Moxar\Validator\Rules\Image@height');
+                Validator::extend('height', 'Moxar\Valiadtion\Rules\Image@height');
                 Validator::replacer('height', function($message, $attribute, $rule, $parameters) {
                     return $message = str_replace(':value', $parameters[0], $message);
                 });
@@ -92,7 +92,7 @@ class ValidationServiceProvider extends ServiceProvider {
         
         protected function uniqueLang() {
             $this->app->before(function() {
-                Validator::extend('uniqueLang', 'Moxar\Validator\Rules\Translate@uniqueLang');
+                Validator::extend('uniqueLang', 'Moxar\Valiadtion\Rules\Translate@uniqueLang');
             });
         }
 }
