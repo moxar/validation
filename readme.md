@@ -87,24 +87,25 @@ Here is your controller class:
 This package provides some additional rules:
 
 ### Images
-* ratio:*width,height* checks the ratio of an image
-* minWidth:*min* checks the minimal width of an image
-* maxWidth:*max* checks the maximal width of an image
-* width:*value* checks the width of an image
-* minHeight:*min* checks the minimal height of an image
-* maxHeight:*max* checks the maximal height of an image
-* height:*value* checks the height of an image
+* ratio:*width,height* -- checks the ratio of an image
+* minWidth:*min* -- checks the minimal width of an image
+* maxWidth:*max* -- checks the maximal width of an image
+* width:*value* -- checks the width of an image
+* minHeight:*min* -- checks the minimal height of an image
+* maxHeight:*max* -- checks the maximal height of an image
+* height:*value* -- checks the height of an image
 
 ### Translation
 
-* uniqueLang:**table,field,id to ignore** checks if the given field is unique in the table.
+* uniqueLang:*table,field,id* -- checks if the given field is unique in the table.
 
 Note about `unique`: Assuming you provide an `id` field, the `unique` rule will not trigger false if you try to update a model.
+
 `uniqueLang` behaves the same if you provide a `iso[id]` field, with `iso` being the iso of the lang and `id` being the id of the translation line.
 
 ### Strings
 
-* fullName: checks if the given field is made of strings, spaces or hyphen
+* fullName: -- checks if the given field is made of strings, spaces or hyphen
 
 regex: `#^([A-Za-z -])*$#`
 
