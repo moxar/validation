@@ -1,10 +1,10 @@
-<?php namespace Moxar\Validator;
+<?php namespace Moxar\Validation;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 
 
-class ValidatorServiceProvider extends ServiceProvider {
+class ValidationServiceProvider extends ServiceProvider {
 
 	protected $defer = false;
 	
@@ -23,6 +23,7 @@ class ValidatorServiceProvider extends ServiceProvider {
             $this->minHeight();
             $this->maxHeight();
             $this->height();
+            $this->uniqueLang();
 	}
 	
 	protected function ratio() {
@@ -86,6 +87,12 @@ class ValidatorServiceProvider extends ServiceProvider {
                 Validator::replacer('height', function($message, $attribute, $rule, $parameters) {
                     return $message = str_replace(':value', $parameters[0], $message);
                 });
+            });
+        }
+        
+        protected function uniqueLang() {
+            $this->app->before(function() {
+                Validator::extend('uniqueLang', 'Moxar\Validator\Rules\Translate@uniqueLang');
             });
         }
 }

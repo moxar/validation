@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Moxar\\Validator": "src/"
+            "Moxar\\Validation": "src/"
         }
     },
     "minimum-stability": "stable"

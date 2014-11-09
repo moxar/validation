@@ -1,4 +1,4 @@
-<?php namespace Moxar\Validator\Rules;
+<?php namespace Moxar\Validation\Rules;
 
 class Image {
     
