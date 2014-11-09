@@ -39,6 +39,9 @@ class ArticleValidator extends Validator {
     // use the translatable trait since this model uses a translation table and 
     // some of its rules depend on translation.
     use Translatable;
+    
+    // use the basic trait if your model is not related to a translation table.
+    // use Moxar\Validation\Traits\Basic;
 
     $rules = [
         // this rules will apply when using any action
