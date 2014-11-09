@@ -23,10 +23,10 @@ Install using composer:
 
 ## Usage
 
-Let's assume you have an `Article` model with a `picture` field connected to a `file input`.
-The model also has a `user_id` field which is a foreign key to a `User` model.
-The `Article` model uses an `ArticleTranslation` model which table is `article_translations`.
-The `article_translations` table contains a `title` and a `locale` field
+* Let's assume you have an `Article` model with a `picture` field connected to a `file input`.
+* The model also has a `user_id` field which is a foreign key to a `User` model.
+* The `Article` model uses an `ArticleTranslation` model which table is `article_translations`.
+* The `article_translations` table contains a `title` and a `locale` field
 
 Here is your validation class:
 
