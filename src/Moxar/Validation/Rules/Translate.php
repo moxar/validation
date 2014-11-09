@@ -1,6 +1,6 @@
 <?php namespace Moxar\Validation\Rules;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class Translate {
     
