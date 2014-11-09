@@ -35,6 +35,26 @@ abstract class Validator extends FormValidator implements Validable {
             $this->{$action} = [];
         }
         
-        $this->rules = array_merge($this->rules, $this->{$action});
+        // explodes rules into arrays.
+        foreach($this->{$action} as &$rules) {
+            $rules = explode("|", $rules);
+        }
+        foreach($this->rules as &$rules) {
+            $rules = explode("|", $rules);
+        }
+        
+        // insert specific rules into global rules array
+        foreach($this->{$action} as $field => &$rules) {
+        
+            // creates global rule key if not exist
+            if(!in_array($field, array_keys($this->rules))) {
+                $this->rules[$field] = [];
+            }
+            // append rule to array.
+            foreach($rules as $rule) {
+                $this->rules[$field][] = $rule;
+                
+            }
+        }
     }
 }
