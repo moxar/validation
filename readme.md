@@ -33,6 +33,7 @@ Here is your validation class:
 ```php
 use Moxar\Validation\Validator;
 use Moxar\Validation\Traits\Translatable;
+// use Moxar\Validation\Traits\Basic;
 
 class ArticleValidator extends Validator {
 
@@ -41,7 +42,7 @@ class ArticleValidator extends Validator {
     use Translatable;
     
     // use the basic trait if your model is not related to a translation table.
-    // use Moxar\Validation\Traits\Basic;
+    // use Basic;
 
     $rules = [
         // this rules will apply when using any action
