@@ -1,9 +1,9 @@
 {
-    "name": "moxar/validator",
+    "name": "moxar/validion",
     "type": "library",
     "description": "Extended Validator: images and translations for Laravel 4.",
     "keywords": ["validator", "image", "laravel", "translation"],
-    "homepage": "https://github.com/moxar/validator",
+    "homepage": "https://github.com/moxar/validation",
     "license": "MIT",
     "authors": [
         {
