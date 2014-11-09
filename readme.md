@@ -23,8 +23,10 @@ Install using composer:
 
 ## Usage
 
-Let's assume you have an `Article` model with a `picture` field is connected to a `file input`, and a `user_id` field which is a foreign key to a `User` model.
-The `Article` model uses an `ArticleTranslation` model which table is `article_translation` and contains a `title` and a `locale` field
+Let's assume you have an `Article` model with a `picture` field connected to a `file input`.
+The model also has a `user_id` field which is a foreign key to a `User` model.
+The `Article` model uses an `ArticleTranslation` model which table is `article_translations`.
+The `article_translations` table contains a `title` and a `locale` field
 
 Here is your validation class:
 
@@ -65,8 +67,9 @@ Here is your controller class:
             // like with laracast's validator, use a try/catch to test our validation rules.
             try {
             
-                // here is the trick: you have to tell the validator which "action" you are using, 
-                // which means what rules the validator has to check. In this case, 'store'.
+                // here is the trick: you have to tell the validator 
+                // what "action" you are using, which means what rules the
+                // validator has to check. In this case, 'store'.
                 $this->validator->action('store')->validate(Input::all());
             }
             catch(FormValidationException $e) {
