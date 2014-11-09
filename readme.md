@@ -56,7 +56,7 @@ class ArticleValidator extends Validator {
     
 Here is your controller class:
 
-```
+```php
 class ArticleController extends Controller {
 
     // inject your validator here
@@ -117,7 +117,7 @@ Note about `fullName`: This rule uses this regex: `#^([A-Za-z -])*$#`
 
 To get pretty validation messages when using this package, add the following lines to your `app/language/<lang>/validation.php` file.
 
-```
+```php
 /*
 |--------------------------------------------------------------------------
 | Moxar\Validator package translations
