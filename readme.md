@@ -111,12 +111,6 @@ Note about `unique`: Assuming you provide an `id` field, the `unique` rule will 
 
 `uniqueLang` behaves the same if you provide a `iso[id]` field, with `iso` being the iso of the lang and `id` being the id of the translation line.
 
-### Strings
-
-* fullName: -- checks if the given field is made of strings, spaces or hyphen.
-
-Note about `fullName`: This rule uses this regex: `#^([A-Za-z -])*$#`
-
 ## Validation messages
 
 To get pretty validation messages when using this package, add the following lines to your `app/language/<lang>/validation.php` file.
@@ -139,5 +133,4 @@ To get pretty validation messages when using this package, add the following lin
 "max_height"           => "The :attribute image max height is :maxpx.",
 "height"               => "The :attribute image height must be :valuepx.",
 "unique_lang"          => "The :attribute has already been taken.",
-"full_name"            => "The :attribute must be a full name.",
 ```
