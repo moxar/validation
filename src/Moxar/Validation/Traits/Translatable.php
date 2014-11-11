@@ -59,17 +59,16 @@ trait Translatable {
         
         // look for the 'unique' rule and add current input id to the rule.
         foreach($this->rules as $key => &$field) {
-            
-            // checks if the input element has an ID, ie: exists in database.
+        
             $lang = strstr($key, ".", true);
-            if(!isset($inputs[$lang]['id']) || $inputs[$lang]['id'] == "") {
-                continue;
-            }
             
             // adds id to ignore to rule.
             foreach($field as &$rule) {
-                if(preg_match("#(unique:)|(uniqueLang:)#", $rule)) {
+                if(preg_match("#uniqueLang:#", $rule)) {
                     $rule .= ",".$inputs[$lang]['id'];
+                }
+                if(preg_match("#unique:#", $rule)) {
+                    $rule .= ",".$inputs['id'];
                 }
             }
         }
