@@ -64,10 +64,10 @@ trait Translatable {
             
             // adds id to ignore to rule.
             foreach($field as &$rule) {
-                if(preg_match("#uniqueLang:#", $rule)) {
+                if(isset($inputs[$lang]['id']) && preg_match("#uniqueLang:#", $rule)) {
                     $rule .= ",".$inputs[$lang]['id'];
                 }
-                if(preg_match("#unique:#", $rule)) {
+                if(isset($inputs['id']) && preg_match("#unique:#", $rule)) {
                     $rule .= ",".$inputs['id'];
                 }
             }
